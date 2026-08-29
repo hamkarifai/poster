@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>HAMKA.EXE — Installing My FIK Student Era</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root{
+  --bg-1:#EEF1FF;
+  --bg-2:#E3E8FF;
+  --ink:#211B4E;
+  --ink-soft:#5B5680;
+  --card:#FFFFFF;
+  --line:#E4E1F7;
+  --indigo:#5B4FE9;
+  --indigo-deep:#3D33B0;
+  --mint:#12B886;
+  --coral:#F0506E;
+  --amber:#F5A524;
+  --sky:#2FA8E0;
+  --node:#3C873A;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 85% 0%, #D9DCFF 0%, transparent 45%),
+    radial-gradient(circle at 0% 100%, #DFF7F0 0%, transparent 40%),
+    linear-gradient(180deg, var(--bg-1), var(--bg-2));
+  font-family:'Inter', sans-serif;
+  color:var(--ink);
+  display:flex;
+  justify-content:center;
+  padding:36px 12px;
+}
+
+.poster{
+  width:960px;
+  max-width:100%;
+  background:transparent;
+}
+
+.editorbar{
+  background:#1E1B3A;
+  border-radius:16px 16px 0 0;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.dot{width:11px;height:11px;border-radius:50%;}
+.dot.r{background:#F0506E;} .dot.y{background:#F5A524;} .dot.g{background:#12B886;}
+.filename{
+  margin-left:16px;
+  font-family:'JetBrains Mono', monospace;
+  color:#C7C4E8;
+  font-size:13px;
+}
+
+.codewrap{
+  background:#211B4E;
+  padding:26px 32px 30px;
+  border-radius:0 0 4px 4px;
+}
+.codewrap .comment{color:#7A76A8;font-family:'JetBrains Mono',monospace;font-size:13px;}
+.codewrap .kw{color:#8C88E8;font-family:'JetBrains Mono',monospace;font-size:13px;}
+.codewrap .str{color:#8CE8C4;font-family:'JetBrains Mono',monospace;font-size:13px;}
+.codewrap .key{color:#F5A524;font-family:'JetBrains Mono',monospace;font-size:13px;}
+.codeline{font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.9;white-space:pre;}
+
+.hero{
+  background:var(--card);
+  border-radius:4px;
+  padding:34px 36px 30px;
+  margin-top:0;
+  border:1px solid var(--line);
+}
+.hero h1{
+  font-family:'Space Grotesk', sans-serif;
+  font-size:52px;
+  font-weight:700;
+  margin:0 0 6px;
+  letter-spacing:-0.5px;
+  background:linear-gradient(90deg, var(--indigo-deep), var(--indigo));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.hero .sub{
+  font-family:'JetBrains Mono',monospace;
+  color:var(--mint);
+  font-size:14px;
+  font-weight:500;
+  margin-bottom:20px;
+}
+.progressrow{
+  display:flex;align-items:center;gap:14px;
+  background:#F6F5FF;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:14px 18px;
+}
+.progressrow .lbl{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft);white-space:nowrap;}
+.bartrack{flex:1;height:12px;border-radius:8px;background:#E4E1F7;overflow:hidden;}
+.barfill{height:100%;border-radius:8px;background:linear-gradient(90deg,var(--indigo),var(--sky));}
+.pct{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:var(--indigo-deep);}
+
+.section-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;font-weight:700;letter-spacing:.5px;
+  color:var(--indigo-deep);
+  background:#EDEBFF;
+  padding:5px 12px;border-radius:20px;
+  margin-bottom:14px;
+}
+.section-label .tag{color:var(--mint);}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px;}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:24px 26px;
+}
+.card h2{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:19px;margin:0 0 16px;
+  display:flex;align-items:center;gap:8px;
+}
+.card h2 .num{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;color:#fff;background:var(--indigo);
+  padding:3px 8px;border-radius:6px;
+}
+
+.avatarwrap{display:flex;gap:16px;align-items:center;margin-bottom:18px;}
+.avatar{
+  width:76px;height:76px;border-radius:18px;flex:none;
+  background:linear-gradient(140deg, var(--indigo), var(--sky));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Space Grotesk',sans-serif;font-weight:700;color:#fff;font-size:26px;
+  box-shadow:0 8px 20px rgba(91,79,233,.35);
+}
+.avatarwrap .who .name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;}
+.avatarwrap .who .role{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft);margin-top:2px;}
+
+.idfield{display:flex;padding:7px 0;border-bottom:1px dashed var(--line);font-size:14px;}
+.idfield:last-child{border-bottom:none;}
+.idfield .k{width:120px;color:var(--ink-soft);font-family:'JetBrains Mono',monospace;font-size:12px;flex:none;padding-top:2px;}
+.idfield .v{font-weight:600;}
+
+.osbadge{
+  margin-top:14px;display:inline-block;
+  background:var(--ink);color:#fff;
+  font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;
+  padding:8px 14px;border-radius:8px;
+}
+
+.badgewrap{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+.badge{
+  font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#fff;
+  padding:6px 11px;border-radius:7px;
+}
+.badge.html{background:var(--coral);}
+.badge.css{background:var(--sky);}
+.badge.js{background:var(--amber);color:#3d2b00;}
+.badge.react{background:#1F9CD1;}
+.badge.node{background:var(--node);}
+
+.list-title{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--ink-soft);letter-spacing:.5px;margin:14px 0 8px;text-transform:uppercase;}
+ul.plain{margin:0;padding:0;list-style:none;}
+ul.plain li{font-size:14px;padding:5px 0 5px 20px;position:relative;}
+ul.plain li:before{content:"›";position:absolute;left:0;color:var(--indigo);font-weight:700;}
+ul.plain.minus li:before{content:"–";color:var(--coral);}
+
+.installgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px;}
+.appcard{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 18px;
+  text-align:left;
+}
+.appicon{
+  width:44px;height:44px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;margin-bottom:12px;color:#fff;
+}
+.appcard .appname{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;margin-bottom:3px;}
+.appcard .appstatus{font-size:12px;color:var(--ink-soft);margin-bottom:10px;}
+.minitrack{height:8px;border-radius:6px;background:#E4E1F7;overflow:hidden;margin-bottom:6px;}
+.minifill{height:100%;border-radius:6px;}
+.appcard .apppct{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--ink-soft);}
+
+.bugcard{
+  background:#FFF6F6;border:1px solid #FBD9DF;border-radius:14px;padding:16px 18px;margin-bottom:12px;
+}
+.bugcard:last-child{margin-bottom:0;}
+.bugtop{display:flex;align-items:center;gap:8px;margin-bottom:4px;}
+.bugid{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:#fff;background:var(--coral);padding:3px 8px;border-radius:20px;}
+.bugstatus{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--coral);font-weight:700;}
+.bugtitle{font-size:14px;font-weight:600;margin:6px 0 8px;}
+.bugtrack{height:7px;border-radius:6px;background:#FBD9DF;overflow:hidden;}
+.bugfill{height:100%;border-radius:6px;background:var(--coral);}
+
+.futurecard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px;}
+.vbar{margin-bottom:12px;}
+.vbar:last-child{margin-bottom:0;}
+.vbar .vtop{display:flex;justify-content:space-between;font-size:12px;font-family:'JetBrains Mono',monospace;color:var(--ink-soft);margin-bottom:5px;}
+.vtrack{height:9px;border-radius:6px;background:#E4E1F7;overflow:hidden;}
+.vfill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--mint),var(--sky));}
+
+.versionpill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#EAFBF4;border:1px solid #BEEFDD;color:var(--mint);
+  font-family:'JetBrains Mono',monospace;font-weight:700;font-size:12px;
+  padding:6px 12px;border-radius:20px;margin-bottom:14px;
+}
+
+.footer{
+  margin-top:18px;background:var(--ink);border-radius:18px;padding:26px 30px;
+  display:flex;justify-content:space-between;align-items:center;gap:24px;color:#fff;
+}
+.footer .quote{font-family:'Space Grotesk',sans-serif;font-size:16px;line-height:1.5;font-weight:500;max-width:640px;}
+.footer .quote span{color:#8CE8C4;}
+.tagbadge{
+  font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;
+  background:linear-gradient(90deg,var(--indigo),var(--sky));
+  padding:10px 16px;border-radius:10px;white-space:nowrap;
+}
+
+.note{
+  margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft);text-align:center;
+}
+.edit{background:#FFF3D6;border-radius:4px;padding:0 4px;color:#8a5b00;}
+</style>
+</head>
+<body>
+<div class="poster" data-document-role="page" data-label="HAMKA.EXE Poster">
+
+  <div class="editorbar">
+    <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+    <div class="filename">hamka.js — FIK OS 2026</div>
+  </div>
+
+  <div class="codewrap">
+<div class="codeline"><span class="comment">// booting new student instance...</span></div>
+<div class="codeline"><span class="kw">const</span> student = <span class="key">{</span></div>
+<div class="codeline">  status: <span class="str">"installing"</span>,</div>
+<div class="codeline">  program: <span class="str">"Sistem Informasi"</span></div>
+<div class="codeline"><span class="key">}</span>;</div>
+  </div>
+
+  <div class="hero">
+    <h1>HAMKA.EXE</h1>
+    <div class="sub">&gt; installing my FIK student era...</div>
+    <div class="progressrow">
+      <div class="lbl">INSTALL PROGRESS</div>
+      <div class="bartrack"><div class="barfill" style="width:63%"></div></div>
+      <div class="pct">63%</div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="section-label"><span class="tag">01</span> SYSTEM IDENTITY</div>
+      <div class="avatarwrap">
+        <div class="avatar">MHR</div>
+        <div class="who">
+          <div class="name">Muhammad Hamka Rifai</div>
+          <div class="role">@ FIK — Kelompok 28</div>
+        </div>
+      </div>
+      <div class="idfield"><div class="k">NAMA</div><div class="v">Muhammad Hamka Rifai</div></div>
+      <div class="idfield"><div class="k">NIM</div><div class="v"><span class="edit">isi NIM di sini</span></div></div>
+      <div class="idfield"><div class="k">PRODI</div><div class="v">Sistem Informasi</div></div>
+      <div class="idfield"><div class="k">KELOMPOK</div><div class="v">28</div></div>
+      <div class="idfield"><div class="k">PANGGILAN</div><div class="v">Hamka</div></div>
+      <div class="osbadge">HAMKA_OS v1.0 — Fresh Install Edition</div>
+    </div>
+
+    <div class="card">
+      <div class="section-label"><span class="tag">02</span> CURRENT SYSTEM</div>
+      <div class="list-title">Skills loaded</div>
+      <div class="badgewrap">
+        <div class="badge html">HTML</div>
+        <div class="badge css">CSS</div>
+        <div class="badge js">JAVASCRIPT</div>
+        <div class="badge react">REACT.JS</div>
+        <div class="badge node">NODE.JS</div>
+      </div>
+      <div class="list-title">Need to learn</div>
+      <ul class="plain">
+        <li>Leadership</li>
+        <li>Communication skill</li>
+        <li>Memperdalam fundamental coding</li>
+      </ul>
+      <div class="list-title">Strengths</div>
+      <ul class="plain">
+        <li><span class="edit">tulis kelebihanmu</span></li>
+        <li><span class="edit">tulis kelebihanmu</span></li>
+      </ul>
+      <div class="list-title">Weaknesses</div>
+      <ul class="plain minus">
+        <li><span class="edit">tulis kekuranganmu</span></li>
+        <li><span class="edit">tulis kekuranganmu</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:18px;">
+    <div class="section-label"><span class="tag">03</span> INSTALLATION PLAN</div>
+    <div class="installgrid">
+      <div class="appcard">
+        <div class="appicon" style="background:var(--indigo);">👤</div>
+        <div class="appname">Leadership.exe</div>
+        <div class="appstatus">Installing...</div>
+        <div class="minitrack"><div class="minifill" style="width:70%;background:var(--indigo);"></div></div>
+        <div class="apppct">70%</div>
+      </div>
+      <div class="appcard">
+        <div class="appicon" style="background:var(--coral);">💬</div>
+        <div class="appname">CommunicationSkill.exe</div>
+        <div class="appstatus">Installing...</div>
+        <div class="minitrack"><div class="minifill" style="width:55%;background:var(--coral);"></div></div>
+        <div class="apppct">55%</div>
+      </div>
+      <div class="appcard">
+        <div class="appicon" style="background:var(--node);">{ }</div>
+        <div class="appname">FundamentalCoding.exe</div>
+        <div class="appstatus">Installing...</div>
+        <div class="minitrack"><div class="minifill" style="width:40%;background:var(--node);"></div></div>
+        <div class="apppct">40%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-top:18px;">
+    <div class="card">
+      <div class="section-label"><span class="tag">04</span> KNOWN BUGS</div>
+      <div class="bugcard">
+        <div class="bugtop"><div class="bugid">BUG #001</div><div class="bugstatus">IN PROGRESS</div></div>
+        <div class="bugtitle">Procrastination.exe running in background</div>
+        <div class="bugtrack"><div class="bugfill" style="width:45%"></div></div>
+      </div>
+      <div class="bugcard">
+        <div class="bugtop"><div class="bugid">BUG #002</div><div class="bugstatus">IN PROGRESS</div></div>
+        <div class="bugtitle">Overthinking sebelum submit tugas</div>
+        <div class="bugtrack"><div class="bugfill" style="width:35%"></div></div>
+      </div>
+    </div>
+
+    <div class="futurecard">
+      <div class="section-label"><span class="tag">05</span> FUTURE VERSION</div>
+      <div class="versionpill">v1.0 → v4.0 UPGRADE</div>
+      <div class="vbar"><div class="vtop"><span>Discipline</span><span>90%</span></div><div class="vtrack"><div class="vfill" style="width:90%"></div></div></div>
+      <div class="vbar"><div class="vtop"><span>Goal-focus</span><span>92%</span></div><div class="vtrack"><div class="vfill" style="width:92%"></div></div></div>
+      <div class="vbar"><div class="vtop"><span>Skill Set</span><span>85%</span></div><div class="vtrack"><div class="vfill" style="width:85%"></div></div></div>
+      <div class="vbar"><div class="vtop"><span>Confidence</span><span>80%</span></div><div class="vtrack"><div class="vfill" style="width:80%"></div></div></div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft);margin-top:14px;">System message: upgrade in progress. Stay consistent. ✦</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="quote">"Proses instalasinya mungkin nggak selalu mulus, tapi <span>versi terbaikku sedang di-build</span>, satu commit demi satu commit."</div>
+    <div class="tagbadge">FIK 2026</div>
+  </div>
+
+  <div class="note">Ganti bagian kuning (⌨ NIM, kelebihan, kekurangan) sebelum export ke PNG di Canva/Figma.</div>
+
+</div>
+</body>
+</html>
